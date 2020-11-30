@@ -1,0 +1,17 @@
+<?php
+
+//$result = $conexao -> mysql_query("SELECT * FROM `usuarios` WHERE (`usuario` = '". $usuario ."') AND (`senha` = '". sha1($senha) ."')");
+$result = $conexao -> query("SELECT * FROM usuarios WHERE (usuario = '".$usuario."') AND (senha = '".$senha."')");
+
+if (mysql_num_rows($result) == 0) 
+{
+    // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
+    echo "Login inválido!"; exit;
+} 
+else 
+{
+    header('Location: index.php');
+}
+
+
+?>	
